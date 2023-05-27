@@ -8,6 +8,6 @@ resource "aws_vpc" "Mastermind-vpc" {
 
   tags = {
     Name        = "Mastermind-vpc"
-    Environment = "Dev"
+    Environment = "Prod"
   }
 }
