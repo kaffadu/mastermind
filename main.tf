@@ -23,3 +23,19 @@ resource "aws_subnet" "Mastermind-sub1" {
     Name = "Mastermind-sub1"
   }
 }
+
+# Public Route Tables
+resource "aws_route_table" "Mastermind-pub-route-table" {
+  vpc_id = aws_vpc.Mastermind-vpc.id
+
+  tags = {
+    Name = "Mastermind-pub-route-table"
+  }
+}
+
+
+# Route Table Associations
+resource "aws_route_table_association" "public-rt-assoc" {
+  subnet_id      = aws_subnet.Mastermind-sub1.id
+  route_table_id = aws_route_table.Mastermind-pub-route-table.id
+}
