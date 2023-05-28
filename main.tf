@@ -43,6 +43,13 @@ resource "aws_route_table" "mastermind_prv_rt" {
   tags = {
     Name        = "mastermind_prv_rt"
     Environment = "Prod"
+
+# Public Route Tables
+resource "aws_route_table" "Mastermind-pub-route-table" {
+  vpc_id = aws_vpc.Mastermind-vpc.id
+
+  tags = {
+    Name = "Mastermind-pub-route-table"
   }
 }
 
@@ -51,4 +58,9 @@ resource "aws_route_table" "mastermind_prv_rt" {
 resource "aws_route_table_association" "private-rt-assoc" {
   subnet_id      = aws_subnet.Mastermind_sub2.id
   route_table_id = aws_route_table.mastermind_prv_rt.id
+}
+# Route Table Associations
+resource "aws_route_table_association" "public-rt-assoc" {
+  subnet_id      = aws_subnet.Mastermind-sub1.id
+  route_table_id = aws_route_table.Mastermind-pub-route-table.id
 }
