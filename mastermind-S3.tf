@@ -3,6 +3,6 @@ resource "aws_s3_bucket" "Mastermind" {
 
   tags = {
     Name        = "mastermind bucket"
-    Environment = "Dev"
+    Environment = "Prod"
   }
 }
