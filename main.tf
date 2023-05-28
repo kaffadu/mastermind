@@ -43,6 +43,8 @@ resource "aws_route_table" "mastermind_prv_rt" {
   tags = {
     Name        = "mastermind_prv_rt"
     Environment = "Prod"
+  }
+}
 
 # Public Route Tables
 resource "aws_route_table" "Mastermind-pub-route-table" {
