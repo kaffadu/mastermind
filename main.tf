@@ -55,7 +55,6 @@ resource "aws_route_table" "Mastermind-pub-route-table" {
   }
 }
 
-
 # mastermind route table association
 resource "aws_route_table_association" "private-rt-assoc" {
   subnet_id      = aws_subnet.Mastermind_sub2.id
